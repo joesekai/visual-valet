@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "visual-valet",
+  "version": "0.1.0",
+  "description": "Visual Valet: A user-friendly Chrome extension to effortlessly search, manage, and insert images, icons, and GIFs into your Excalidraw designs.",
+  "icons": {
+    "16": "icons/icon_16.png",
+    "32": "icons/icon_32.png",
+    "48": "icons/icon_48.png",
+    "128": "icons/icon_128.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  }
+}
