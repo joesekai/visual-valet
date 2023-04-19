@@ -14,7 +14,14 @@
       "build/"
     ]
   },
+  "alias": {
+    "react": "preact/compat",
+    "react-dom": "preact/compat",
+    "react/jsx-runtime": "preact/jsx-runtime",
+    "react/jsx-dev-runtime": "preact/jsx-dev-runtime"
+  },
   "devDependencies": {
+    "@babel/plugin-transform-react-jsx": "^7.21.0",
     "@parcel/config-webextension": "^2.8.3",
     "enzyme": "^3.11.0",
     "enzyme-adapter-preact-pure": "^4.0.0",
@@ -26,8 +33,10 @@
     "tailwindcss": "^3.3.1"
   },
   "dependencies": {
+    "lodash-es": "^4.17.21",
     "preact": "^10.11.3",
+    "preact-jsx-runtime": "^1.2.0",
     "preact-render-to-string": "^5.2.6",
-    "preact-router": "^3.2.1"
+    "react-icons": "^4.8.0"
   }
 }

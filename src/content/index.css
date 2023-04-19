@@ -1,3 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes color-change {
+  0% {
+    fill: #e787b3;
+  }
+  20% {
+    fill: #d587e7;
+  }
+  40% {
+    fill: #a387e7;
+  }
+  60% {
+    fill: #87c9e7;
+  }
+  80% {
+    fill: #e79987;
+  }
+  100% {
+    fill: #e787b3;
+  }
+}
+
+.color-changing {
+  animation: color-change 2s infinite;
+}
