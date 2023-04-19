@@ -6,7 +6,7 @@ export default function MessageLayout({
   buttonAction,
 }) {
   return (
-    <div className="h-full mt-40 flex flex-col items-center justify-center text-center">
+    <div className="h-full mt-40 flex flex-col items-center  text-center">
       <div className="mb-4">
         <SVG height="140px" width="140px" />
       </div>

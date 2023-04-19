@@ -17,7 +17,7 @@ export default function DrawerBody() {
         type="text"
         placeholder="Search for an Icon or Image ✨"
       />
-      <div class="w-full max-w-md">
+      <div class="w-full h-full max-w-md">
         <div class="flex justify-between space-x-4">
           {values(TABS).map((tab) => (
             <Tab
@@ -29,7 +29,7 @@ export default function DrawerBody() {
             />
           ))}
         </div>
-        <div class="mt-6">
+        <div class="h-full">
           <MessageLayout
             SVG={InsectSVG}
             title="Oops! We're cricketing a blank here!"
