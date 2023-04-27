@@ -1,0 +1,23 @@
+{
+  "name": "server",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Visual Valet: A user-friendly Chrome extension to effortlessly search, manage, and insert images, icons, and GIFs into your Excalidraw designs.",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joesekai/visual-valet.git"
+  },
+  "author": "joesekai",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "lodash": "^4.17.21",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.8.0"
+  }
+}
