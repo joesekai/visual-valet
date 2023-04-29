@@ -22,3 +22,7 @@ export const TABS = {
     label: "GIF",
   },
 };
+
+export const EVENTS = {
+  FETCH_ICONS: "FETCH_ICONS",
+};

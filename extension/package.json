@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "parcel build src/manifest.json",
-    "start": "parcel watch src/manifest.json --host localhost",
+    "start": "parcel watch src/manifest.json",
     "generateIcons": "node generateIcons.js",
     "lint": "eslint src"
   },
@@ -24,6 +24,7 @@
   "devDependencies": {
     "@babel/plugin-transform-react-jsx": "^7.21.0",
     "@parcel/config-webextension": "^2.8.3",
+    "@types/chrome": "^0.0.233",
     "enzyme": "^3.11.0",
     "enzyme-adapter-preact-pure": "^4.0.0",
     "eslint": "^8.30.0",
@@ -39,6 +40,8 @@
     "preact": "^10.11.3",
     "preact-jsx-runtime": "^1.2.0",
     "preact-render-to-string": "^5.2.6",
-    "react-icons": "^4.8.0"
+    "react-hot-toast": "^2.4.1",
+    "react-icons": "^4.8.0",
+    "react-window": "^1.8.9"
   }
 }

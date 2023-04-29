@@ -7,11 +7,17 @@ const { IconsManifest } = require("react-icons");
 const { camelCase, startCase, stubString, trim } = require("lodash");
 const cors = require("cors");
 
-// Enable CORS for all routes
-app.use(cors());
+const corsOptions = {
+  origin: true,
+  methods: "GET,POST,PUT,DELETE", // Allowed methods
+  allowedHeaders: "Content-Type,Authorization", // Allowed headers
+};
 
 const app = express();
 const port = process.env.PORT || 3000;
+
+// Enable CORS for all routes
+app.use(cors(corsOptions));
 
 const publicDir = path.join(__dirname, "public");
 if (!fs.existsSync(publicDir)) {
@@ -42,10 +48,30 @@ const generateIcons = () => {
 
 generateIcons();
 
+// Read icons from the JSON file
+const readIconsFromFile = () => {
+  const filePath = path.join(__dirname, "public", "icons.json");
+  const fileContent = fs.readFileSync(filePath, "utf-8");
+  return JSON.parse(fileContent);
+};
+
 app.use(express.static("public"));
 
+// Search icons based on a query
 app.get("/icons", (req, res) => {
-  res.sendFile(path.join(publicDir, "icons.json"));
+  const query = req.query.search;
+  const icons = readIconsFromFile();
+
+  if (query) {
+    const searchTerm = query.toLowerCase();
+    const filteredIcons = icons
+      .filter((icon) => icon.name.toLowerCase().includes(searchTerm))
+      .sort((a, b) => a.id.localeCompare(b.id));
+
+    res.json(filteredIcons);
+  } else {
+    res.json(icons);
+  }
 });
 
 app.listen(port, () => {

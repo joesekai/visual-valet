@@ -1,4 +1,6 @@
 import { useState, useEffect } from "preact/hooks";
+import { Toaster } from "react-hot-toast";
+
 import DrawerBody from "./components/DrawerBody";
 
 const iconSelector = "#visual-valet-button > .ToolIcon__icon";
@@ -52,6 +54,7 @@ export default function App() {
       <div className="h-full w-full flex-col flex gap-4">
         <div className="flex w-full justify-between items-center">logo</div>
         <DrawerBody />
+        <Toaster />
       </div>
     </div>
   );

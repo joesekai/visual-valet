@@ -3,17 +3,17 @@ import { useState } from "preact/hooks";
 import { values, debounce } from "lodash-es";
 
 import Tab from "./Tab";
-import { TABS } from "../constants";
+import { TABS } from "../../constants";
 import InsectSVG from "./svg/InsectSVG";
 import MessageLayout from "./MessageLayout";
 import IconPanel from "./IconPanel";
 
 export default function DrawerBody() {
   const [selectedTab, setSelectedTab] = useState(TABS.RECENT.key);
-  const [searchValue, setSearchValue] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
 
   const deboundedSearch = debounce((value) => {
-    setSearchValue(value);
+    setSearchTerm(value);
   }, 300);
 
   return (
@@ -37,14 +37,14 @@ export default function DrawerBody() {
           ))}
         </div>
         <div class="h-full">
-          <TabPanel selectedTab={selectedTab} searchValue={searchValue} />
+          <TabPanel selectedTab={selectedTab} searchTerm={searchTerm} />
         </div>
       </div>
     </Fragment>
   );
 }
 
-function TabPanel({ selectedTab, searchValue }) {
+function TabPanel({ selectedTab, searchTerm }) {
   if (selectedTab === TABS.RECENT.key) {
     return (
       <MessageLayout
@@ -56,6 +56,6 @@ function TabPanel({ selectedTab, searchValue }) {
   }
 
   if (selectedTab === TABS.ICON.key) {
-    return <IconPanel searchValue={searchValue} />;
+    return <IconPanel searchTerm={searchTerm} />;
   }
 }
