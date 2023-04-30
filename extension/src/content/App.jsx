@@ -5,44 +5,64 @@ import DrawerBody from "./components/DrawerBody";
 
 const iconSelector = "#visual-valet-button > .ToolIcon__icon";
 const svgSelector = "#visual-valet-button > .ToolIcon__icon > svg";
+const inputSelector = "#visual-valet-button > input";
+
 export default function App() {
+  const drawerBtn = document.querySelector("#visual-valet-button");
+  const icon = document.querySelector(iconSelector);
+  const svg = document.querySelector(svgSelector);
+  const input = document.querySelector(inputSelector);
+  const canvas = document.querySelector("#root");
+
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const handleOpenDrawer = (event) => {
+    if (event) {
+      event.preventDefault();
+    }
+
+    setIsDrawerOpen(true);
+
+    icon.style = "background: #e3e2fe";
+    svg.style = "stroke: #5b57d1";
+    input.checked = true;
+  };
+
+  const handleCloseDrawer = (event) => {
+    if (event) {
+      event.preventDefault();
+    }
+
+    setIsDrawerOpen(false);
+
+    icon.style = "background: transparent";
+    svg.style = "stroke: #3d3d3d";
+    input.checked = false;
+  };
 
   useEffect(() => {
-    const drawerBtn = document.querySelector("#visual-valet-button");
-    const icon = document.querySelector(iconSelector);
-    const svg = document.querySelector(svgSelector);
-
     if (!drawerBtn) return;
 
-    const handleClick = (event) => {
-      event.preventDefault();
-
-      setIsDrawerOpen((status) => {
-        if (status) {
-          icon.style = "background: transparent";
-          svg.style = "stroke: #3d3d3d";
-        } else {
-          icon.style = "background: #e3e2fe; ";
-          svg.style = "stroke: #5b57d1";
-        }
-
-        return !status;
-      });
+    const handleClick = () => {
+      if (isDrawerOpen) {
+        handleCloseDrawer();
+      } else {
+        handleOpenDrawer();
+      }
     };
 
     drawerBtn.addEventListener("click", handleClick);
-
     return () => drawerBtn.removeEventListener("click", handleClick);
-  }, []);
+  }, [isDrawerOpen]);
 
   useEffect(() => {
-    const envrionment = document.querySelector("#root");
-    envrionment.addEventListener("click", () => {
+    const handleClick = (event) => {
       if (isDrawerOpen) {
-        setIsDrawerOpen(false);
+        handleCloseDrawer(event);
       }
-    });
+    };
+
+    canvas.addEventListener("click", handleClick);
+    return () => canvas.removeEventListener("click", handleClick);
   }, [isDrawerOpen]);
 
   if (!isDrawerOpen) {

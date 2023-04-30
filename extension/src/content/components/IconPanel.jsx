@@ -8,10 +8,6 @@ export default function IconPanel({ searchTerm }) {
   const [icons, setIcons] = useState([]);
 
   useEffect(() => {
-    if (!searchTerm) {
-      return;
-    }
-
     const message = { type: EVENTS.FETCH_ICONS, payload: { searchTerm } };
     const callback = (response) => setIcons(response.data);
 

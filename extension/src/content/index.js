@@ -20,11 +20,10 @@ label.title = "Visual Valet — cmd or ctrl";
 label.id = "visual-valet-button";
 
 const input = document.createElement("input");
-input.className = "ToolIcon_type_radio ToolIcon_size_medium";
-input.type = "radio";
+input.className = "ToolIcon_type_checkbox";
+input.type = "checkbox";
 input.name = "editor-current-shape";
 input.setAttribute("aria-label", "Visual Valet");
-input.setAttribute("aria-keyshortcuts", "cmd or ctrl");
 input.setAttribute("data-testid", "toolbar-visual-valet");
 
 const div = document.createElement("div");
